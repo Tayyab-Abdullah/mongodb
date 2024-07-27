@@ -35,4 +35,9 @@ async function getCourses(){
     console.log(courses);
 }
 
+
+//Operators in MongoDb are gt = greater than, eq = equals to, ne = not equals etc.
+//We can user these as Course.find({price: { $gt: 20 }});
+
+
 getCourses();
