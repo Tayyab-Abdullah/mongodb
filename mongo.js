@@ -46,4 +46,8 @@ async function getCourses(){
 // Course.find().or([{ name: "Tayyab" }, { isPublished: true }])
 // Similar for and operator Course.find().and([{ filters }, {filters}])
 
+
+// Regular Expression.
+// Course.find({ author: /^Tayyab/i }); /Tayyab$/i /.*Tayyab.*/i
+
 getCourses();
