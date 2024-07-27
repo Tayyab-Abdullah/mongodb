@@ -29,4 +29,10 @@ async function createCourse(){
     console.log(result);
 }
 
-createCourse();
+async function getCourses(){
+    const courses = await Course.find({ author: 'Tayyab'}); 
+    // we can alse use .limit().sort({name: 1 or -1}) etc
+    console.log(courses);
+}
+
+getCourses();
