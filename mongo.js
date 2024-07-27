@@ -40,4 +40,10 @@ async function getCourses(){
 //We can user these as Course.find({price: { $gt: 20 }});
 
 
+
+//Logical Operator and , or
+
+// Course.find().or([{ name: "Tayyab" }, { isPublished: true }])
+// Similar for and operator Course.find().and([{ filters }, {filters}])
+
 getCourses();
