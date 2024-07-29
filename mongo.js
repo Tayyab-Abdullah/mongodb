@@ -47,6 +47,11 @@ async function updateCourse(id){
     console.log(result);
 }
 
+async function removeCourse(id){
+    const result = await Course.deleteOne({ _id: id });
+    console.log(result);
+}
+
 //Operators in MongoDb are gt = greater than, eq = equals to, ne = not equals etc.
 //We can user these as Course.find({price: { $gt: 20 }});
 
@@ -61,4 +66,4 @@ async function updateCourse(id){
 // Regular Expression.
 // Course.find({ author: /^Tayyab/i }); /Tayyab$/i /.*Tayyab.*/i
 
-updateCourse('66a4b43d784944d1d240cc2e');
+removeCourse('66a4b43d784944d1d240cc2e');
