@@ -29,12 +29,23 @@ async function createCourse(){
     console.log(result);
 }
 
-async function getCourses(){
-    const courses = await Course.find({ author: 'Tayyab'}); 
+async function getCourse(){
+    const courses = await Course.find(); 
     // we can alse use .limit().sort({name: 1 or -1}) etc
     console.log(courses);
 }
 
+
+async function updateCourse(id){
+    const course = await Course.findById(id);
+    if(!course) return;
+    course.set({
+        author: 'Mushtaq'
+    });
+
+    const result = await course.save();
+    console.log(result);
+}
 
 //Operators in MongoDb are gt = greater than, eq = equals to, ne = not equals etc.
 //We can user these as Course.find({price: { $gt: 20 }});
@@ -50,4 +61,4 @@ async function getCourses(){
 // Regular Expression.
 // Course.find({ author: /^Tayyab/i }); /Tayyab$/i /.*Tayyab.*/i
 
-getCourses();
+updateCourse('66a4b43d784944d1d240cc2e');
