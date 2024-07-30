@@ -19,7 +19,7 @@ const Genre = mongoose.model('Genre', new mongoose.Schema({
 
   // Handling get request
   
-  app.get('/', async (req, res) => {
+  app.get('/api/genres/', async (req, res) => {
     const genres = await Genre.find().sort('name');
     res.send(genres);
   });
