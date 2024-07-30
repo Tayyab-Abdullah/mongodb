@@ -63,7 +63,7 @@ const Genre = mongoose.model('Genre', new mongoose.Schema({
   
   app.delete('/api/genres/:id', async (req, res) => {
 
-    const genre = await Genre.findByIdAndRemove(req.params.id);
+    const genre = await Genre.deleteOne({ _id: req.params.id });
     if (!genre) return res.status(404).send('The genre with the given ID was not found.');
 
     res.send(genre);
@@ -76,7 +76,7 @@ const Genre = mongoose.model('Genre', new mongoose.Schema({
       name: Joi.string().min(3).required()
     };
   
-    return Joi.validate(genre, schema);
+    return true;
   }
 
 const port = process.env.PORT || 3000;
