@@ -26,6 +26,7 @@ async function createCourse(){
     });
 
     try{
+        await course.validation();
         const result = await course.save();
         console.log(result);
     }
