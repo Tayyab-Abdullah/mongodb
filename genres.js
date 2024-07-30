@@ -4,6 +4,10 @@ const app = express();
 const Joi = require('joi');
 app.use(express.json());
 
+mongoose.connect('mongodb://localhost/vidly')
+ .then(() => console.log('Connected to MongoDB'))
+ .catch((err) => console.log('Connection Failed: ', err.message));
+
 const Genre = mongoose.model('Genre', new mongoose.Schema({
     name: {
         type: String,
@@ -13,8 +17,6 @@ const Genre = mongoose.model('Genre', new mongoose.Schema({
     }
 }));
 
-
-  
   // Handling get request
   
   app.get('/', async (req, res) => {
