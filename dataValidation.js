@@ -7,6 +7,11 @@ mongoose.connect('mongodb://localhost/dataValid')
 
 const courseSchema = new mongoose.Schema({
     name: {type: String, required: true},
+    category: {
+        type: String,
+        required: true,
+        enum: ['web', 'mobile', 'network']
+    },
     author: String,
     tags: [ String ],
     date: { type: Date, default: Date.now },
@@ -18,7 +23,8 @@ const Course = mongoose.model('Course', courseSchema);
 
 async function createCourse(){
     const course = new Course({
-        // name: 'NodeJs Course',
+        name: 'NodeJs Course',
+        category: 'web',
         author: 'Tayyab',
         tags: ['Backend', 'JavaScript'],
         isPublished: true,
